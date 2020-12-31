@@ -1939,6 +1939,23 @@ header .logo a {
 	line-height: 2.4rem;
 	margin-bottom: 12px;
 }
+
+.popup-modal .description-box .jupyter {
+	font-family: "Exo 2";
+	font-size: 1.4rem;
+	line-height: 2.4rem;
+	margin-bottom: 12px;
+	color: #f28e2b;
+}
+.popup-modal .description-box .jupyter:hover{
+	font-family: "Exo 2";
+	font-size: 1.4rem;
+	line-height: 2.4rem;
+	margin-bottom: 12px;
+	color: #cc0700;
+	text-decoration: underline;
+}
+
 .popup-modal .categories {
 	font-family: "Exo 2";
 	font-weight: bold;
