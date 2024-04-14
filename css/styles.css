@@ -1,0 +1,306 @@
+/* Global */
+body, h1, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Reset some basic elements */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Ensures no overflow horizontally */
+    min-height: 100vh; /* Full viewport height */
+    overflow-x: hidden; /* Hides horizontal overflow to prevent scrollbars */
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style-type: none;
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.navbar ul li a:hover {
+    color: #ddd;
+}
+
+/* Landing */
+body.landing {
+    font-family: "Exo 2"; /* Default body font */
+    display: flex; /* Using Flexbox */
+    flex-direction: column; /* Children are laid out vertically */
+    justify-content: flex-end; /* Aligns children to the end (bottom) of the container */
+    align-items: stretch; /* Stretches children to fit the width of the container */
+    position: relative; /* Needed for absolute positioning of pseudo-elements */
+}
+
+body.landing::before {
+    content: ""; /* Necessary for pseudo-elements */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/background_mountain_enhanced2.png'); /* Background image */
+    background-size: cover; /* Ensures the image covers the full view */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat;
+    opacity: 0.7; /* Adjust this value to change the opacity of the background image */
+    z-index: -1; /* Ensures it stays behind all other content */
+}
+
+.main-content {
+    display: flex; /* Enable flexbox for center alignment */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    width: 100%;
+    margin-bottom: 15vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    text-align: center; /* Center text */
+    position: relative;
+    z-index: 1;
+}
+
+.main-content p, .main-content h1 {
+    width: 60%; /* Sets text elements to occupy only 60% of the main-content */
+    margin: 0 auto; /* Centers the text blocks */
+}
+
+.landing h1 {
+    font-family: "Exo 2"; /* Specific font for headings */
+    font-size: 60px;
+}
+
+
+.landing p {
+    font-family: "Exo 2"; /* Specific font for paragraphs */
+    font-size: 20px;
+}
+
+.landing h1, .landing h3, .landing p {
+    color: white !important;
+}
+
+.landing h2 {
+    color:#fff8d8 !important;
+    font-family: "Roboto";
+}
+
+@media (max-width: 1000px) {
+    .main-content {
+        width: 90%;
+        margin-bottom: 5vh;
+    }
+}
+
+/* Floating Images Container */
+.floating-images-container {
+    position: fixed;
+    top: 0;
+    left: 10%; /* Centers the container by putting 10% margin on each side */
+    width: 80%;
+    height: 100%;
+    pointer-events: none; /* Ensures it does not interfere with other clickable elements */
+    z-index: 0; /* Below main content but above the background */
+    display: flex; /* Enable flex to easily manage no-overlap with justify-content */
+    justify-content: space-around; /* This will spread images evenly and prevent overlap */
+}
+
+
+.floating-image {
+    position: absolute;
+    bottom: 50%; /* Start from middle */
+    width: 100px; /* Set your desired image size here */
+    height: auto; /* Maintain aspect ratio */
+    display: none; /* Ensure images are initially hidden */
+    opacity: 0; /* Start fully transparent */
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: 50%;
+        opacity: 1; /* Become fully visible when moving */
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0; /* Fade out at the top */
+    }
+}
+
+
+body.about {
+    font-family: "Exo 2";
+    display: flex;
+    flex-direction: column; /* Add this line */
+    justify-content: flex-start; /* Changed to align content to the start */
+    align-items: center;
+    position: relative;
+    background-color: #f6e8bd;
+    height: auto; /* Changed to auto to allow the content to determine the body height */
+    padding-top: 100px;
+    padding-bottom: 50px; /* Added padding at the bottom for spacing */
+}
+
+
+.intro-info {
+    display: flex; /* Use flex to position items side by side */
+    align-items: flex-start; /* Align items to the top */
+    text-align: left;
+    gap: 20px; /* This adds space between the image and the text container */
+    width: 50%; /* Set the width to 70% of the viewport */
+    margin: 0 auto; /* Center the flex container */
+}
+
+.intro-info img {
+    height: 9rem; /* Adjusted to make the image smaller */
+    width: 9rem; /* Adjusted to make the image smaller */
+    border-radius: 50%;
+    margin-right: 20px; /* Add some space between the image and the text */
+}
+
+.intro-info .lead {
+    margin-bottom: 1em; /* Adds space between paragraphs */
+}
+
+.skills-info {
+    display: flex; /* Set display to flex to use flexbox properties */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    width: 50%; /* Matching the width of .intro-info */
+    margin: 20px auto; /* Same centered layout, with some vertical space */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* For some depth */
+    border-radius: 8px; /* For rounded corners */
+    text-align: center; /* Centering the text horizontally */
+}
+
+.skills-info h2, .skills-info p {
+    margin: 0; /* Remove default margins */
+    padding: 5px 0; /* Add some padding if needed */
+    color: #fff8d8; /* Adjusted text color for both h2 and p */
+}
+
+.timeline {
+    position: relative;
+    padding: 0;
+    list-style: none;
+}
+  
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    width: 2px;
+    background: #C5C5C5;
+}
+  
+.timeline-item {
+    padding: 20px 0;
+}
+  
+.timeline-icon {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #F8F8F8;
+    transform: translateX(-50%);
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
+    z-index: 100;
+}
+  
+.timeline-content {
+    width: 40%;
+    padding: 0 20px;
+    background: #FFF8DC;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.1);
+}
+  
+.timeline-item:nth-child(odd) .timeline-content {
+    float: right;
+}
+  
+.timeline-item:nth-child(even) .timeline-content {
+    float: left;
+}
+  
+h2 {
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+  
+p {
+    margin: 0;
+}
+  
+  /* Clearfix */
+.timeline-item:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+  
+.coming-soon {
+    text-align: center;
+    padding: 100px 20px;
+    background: #f9f9f9; /* Light background to stand out */
+    color: #333; /* Dark text for contrast */
+    font-family: 'Playfair Display', serif; /* Stylish serif font */
+}
+
+.coming-soon h1 {
+    font-size: 3rem; /* Large text size */
+    margin-bottom: 20px;
+}
+
+.coming-soon p {
+    font-size: 1.5rem; /* Readable text size */
+    margin-bottom: 40px;
+}
+
+.coming-soon a {
+    display: inline-block;
+    background: #007bff; /* Blue background for a pop of color */
+    color: #fff; /* White text for readability */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Exo 2'; /* Sans-serif font for a modern look */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.coming-soon a:hover {
+    background: #0056b3; /* Darker blue on hover for interactive feedback */
+    text-decoration: none; /* No underline on hover */
+}
