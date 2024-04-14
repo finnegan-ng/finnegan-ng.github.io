@@ -1,19 +1,47 @@
-/* Global */
+/**
+ * ===================================================================
+ *
+ *  Finnegan Nguyen
+ *  04/13/2024
+ *  ------------------------------------------------------------------
+ *  TOC:
+ *  01. Typography & general theme styles
+ *  02. Navbar
+ *  03. Landing page
+ *  04. Floating images
+ *  05. About page - Introduction
+ *  06. Skills
+ *  07. Timeline
+ *  08. Coming Soon (Temporary)
+ * ===================================================================
+ */
+
+/**
+ * ===================================================================
+ * 01. Typography & general theme styles
+ *
+ * -------------------------------------------------------------------
+ */
 body, h1, p, ul, li {
     margin: 0;
     padding: 0;
 }
 
-/* Reset some basic elements */
+
 html, body {
     margin: 0;
     padding: 0;
-    width: 100%; /* Ensures no overflow horizontally */
-    min-height: 100vh; /* Full viewport height */
-    overflow-x: hidden; /* Hides horizontal overflow to prevent scrollbars */
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* Navbar */
+/**
+ * ===================================================================
+ * 02. Navbar
+ *
+ * -------------------------------------------------------------------
+ */
 .navbar {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
@@ -44,60 +72,65 @@ html, body {
     color: #ddd;
 }
 
-/* Landing */
+/**
+ * ===================================================================
+ * 03. Landing page
+ *
+ * -------------------------------------------------------------------
+ */
 body.landing {
-    font-family: "Exo 2"; /* Default body font */
-    display: flex; /* Using Flexbox */
-    flex-direction: column; /* Children are laid out vertically */
-    justify-content: flex-end; /* Aligns children to the end (bottom) of the container */
-    align-items: stretch; /* Stretches children to fit the width of the container */
-    position: relative; /* Needed for absolute positioning of pseudo-elements */
+    font-family: "Exo 2";
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+    position: relative;
 }
 
 body.landing::before {
-    content: ""; /* Necessary for pseudo-elements */
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../images/background_mountain_enhanced2.png'); /* Background image */
-    background-size: cover; /* Ensures the image covers the full view */
-    background-position: center; /* Centers the background image */
+    background-image: url('../images/background_mountain_enhanced2.png');
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.7; /* Adjust this value to change the opacity of the background image */
-    z-index: -1; /* Ensures it stays behind all other content */
+    opacity: 0.7;
+    z-index: -1;
 }
 
 .main-content {
-    display: flex; /* Enable flexbox for center alignment */
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     margin-bottom: 15vh;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     flex-grow: 1;
-    text-align: center; /* Center text */
+    text-align: center;
     position: relative;
     z-index: 1;
 }
 
 .main-content p, .main-content h1 {
-    width: 60%; /* Sets text elements to occupy only 60% of the main-content */
-    margin: 0 auto; /* Centers the text blocks */
+    width: 60%;
+    margin: 0 auto;
 }
 
 .landing h1 {
-    font-family: "Exo 2"; /* Specific font for headings */
+    font-family: "Exo 2";
     font-size: 60px;
 }
 
 
 .landing p {
-    font-family: "Exo 2"; /* Specific font for paragraphs */
+    font-family: "Exo 2";
     font-size: 20px;
 }
 
@@ -117,95 +150,116 @@ body.landing::before {
     }
 }
 
-/* Floating Images Container */
+/**
+ * ===================================================================
+ * 04. Floating images
+ *
+ * -------------------------------------------------------------------
+ */
 .floating-images-container {
     position: fixed;
     top: 0;
-    left: 10%; /* Centers the container by putting 10% margin on each side */
+    left: 10%;
     width: 80%;
     height: 100%;
-    pointer-events: none; /* Ensures it does not interfere with other clickable elements */
-    z-index: 0; /* Below main content but above the background */
-    display: flex; /* Enable flex to easily manage no-overlap with justify-content */
-    justify-content: space-around; /* This will spread images evenly and prevent overlap */
+    pointer-events: none;
+    z-index: 0;
+    display: flex;
+    justify-content: space-around;
 }
 
 
 .floating-image {
     position: absolute;
-    bottom: 50%; /* Start from middle */
-    width: 100px; /* Set your desired image size here */
-    height: auto; /* Maintain aspect ratio */
-    display: none; /* Ensure images are initially hidden */
-    opacity: 0; /* Start fully transparent */
+    bottom: 50%;
+    width: 100px;
+    height: auto;
+    display: none;
+    opacity: 0;
 }
 
 @keyframes floatUp {
     0% {
         bottom: 50%;
-        opacity: 1; /* Become fully visible when moving */
+        opacity: 1;
     }
     100% {
         bottom: 100%;
-        opacity: 0; /* Fade out at the top */
+        opacity: 0;
     }
 }
 
-
+/**
+ * ===================================================================
+ * 05. About page - Introduction
+ *
+ * -------------------------------------------------------------------
+ */
 body.about {
     font-family: "Exo 2";
     display: flex;
-    flex-direction: column; /* Add this line */
-    justify-content: flex-start; /* Changed to align content to the start */
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
     background-color: #f6e8bd;
-    height: auto; /* Changed to auto to allow the content to determine the body height */
+    height: auto;
     padding-top: 100px;
-    padding-bottom: 50px; /* Added padding at the bottom for spacing */
+    padding-bottom: 50px;
 }
 
-
 .intro-info {
-    display: flex; /* Use flex to position items side by side */
-    align-items: flex-start; /* Align items to the top */
+    display: flex;
+    align-items: flex-start;
     text-align: left;
-    gap: 20px; /* This adds space between the image and the text container */
-    width: 50%; /* Set the width to 70% of the viewport */
-    margin: 0 auto; /* Center the flex container */
+    gap: 20px;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .intro-info img {
-    height: 9rem; /* Adjusted to make the image smaller */
-    width: 9rem; /* Adjusted to make the image smaller */
+    height: 9rem;
+    width: 9rem;
     border-radius: 50%;
-    margin-right: 20px; /* Add some space between the image and the text */
+    margin-right: 20px;
 }
 
 .intro-info .lead {
-    margin-bottom: 1em; /* Adds space between paragraphs */
+    margin-bottom: 1em;
 }
 
+/**
+ * ===================================================================
+ * 06. Skills
+ *
+ * -------------------------------------------------------------------
+ */
 .skills-info {
-    display: flex; /* Set display to flex to use flexbox properties */
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    width: 50%; /* Matching the width of .intro-info */
-    margin: 20px auto; /* Same centered layout, with some vertical space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 20px auto;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* For some depth */
-    border-radius: 8px; /* For rounded corners */
-    text-align: center; /* Centering the text horizontally */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    text-align: center;
 }
 
 .skills-info h2, .skills-info p {
-    margin: 0; /* Remove default margins */
-    padding: 5px 0; /* Add some padding if needed */
-    color: #fff8d8; /* Adjusted text color for both h2 and p */
+    margin: 0;
+    padding: 5px 0;
+    color: #fff8d8;
 }
 
+/**
+ * ===================================================================
+ * 07. Timeline
+ *
+ * -------------------------------------------------------------------
+ */
 .timeline {
     position: relative;
     padding: 0;
@@ -265,7 +319,7 @@ p {
     margin: 0;
 }
   
-  /* Clearfix */
+
 .timeline-item:after {
     content: '';
     display: block;
@@ -275,32 +329,38 @@ p {
 .coming-soon {
     text-align: center;
     padding: 100px 20px;
-    background: #f9f9f9; /* Light background to stand out */
-    color: #333; /* Dark text for contrast */
-    font-family: 'Playfair Display', serif; /* Stylish serif font */
+    background: #f9f9f9;
+    color: #333;
+    font-family: 'Playfair Display', serif;
 }
 
+/**
+ * ===================================================================
+ * 08. Coming Soon (Temporary)
+ *
+ * -------------------------------------------------------------------
+ */
 .coming-soon h1 {
-    font-size: 3rem; /* Large text size */
+    font-size: 3rem;
     margin-bottom: 20px;
 }
 
 .coming-soon p {
-    font-size: 1.5rem; /* Readable text size */
+    font-size: 1.5rem;
     margin-bottom: 40px;
 }
 
 .coming-soon a {
     display: inline-block;
-    background: #007bff; /* Blue background for a pop of color */
-    color: #fff; /* White text for readability */
+    background: #007bff;
+    color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
-    font-family: 'Exo 2'; /* Sans-serif font for a modern look */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    font-family: 'Exo 2';
+    transition: background-color 0.3s ease;
 }
 
 .coming-soon a:hover {
-    background: #0056b3; /* Darker blue on hover for interactive feedback */
-    text-decoration: none; /* No underline on hover */
+    background: #0056b3;
+    text-decoration: none;
 }
