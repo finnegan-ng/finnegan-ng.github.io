@@ -141,6 +141,7 @@ body.landing::before {
 .landing h2 {
     color:#fff8d8 !important;
     font-family: "Roboto";
+    font-size: 40px;
 }
 
 @media (max-width: 1000px) {
